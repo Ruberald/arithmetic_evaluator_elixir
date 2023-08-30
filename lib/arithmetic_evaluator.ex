@@ -5,9 +5,18 @@ defmodule ArithmeticEvaluator do
 
   @doc """
   """
-  @spec run(str :: String.t()) :: [String.t()]
-  def run(str) do
-    Tokenizer.tokenize(str)
-    |> Parser.parse()
+  @spec run() :: :ok
+  def run() do
+    str = IO.gets("Enter the expression: ")
+
+    rpn =
+      str
+      |> Tokenizer.tokenize()
+      |> Parser.parse()
+
+    IO.puts("Generated RPN: ")
+    IO.inspect(rpn)
+
+    IO.puts("Result: #{Compute.compute(rpn)}")
   end
 end

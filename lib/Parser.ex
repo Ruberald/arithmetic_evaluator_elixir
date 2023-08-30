@@ -25,11 +25,11 @@ defmodule Parser do
 
           [top_op | operator_stack] ->
             cond do
-              @operator_precedence[tok] < @operator_precedence[top_op] ->
-                parse(rest, [tok | operator_stack], [top_op | output_queue])
+              @operator_precedence[tok] <= @operator_precedence[top_op] ->
+                parse([tok | rest], operator_stack, [top_op | output_queue])
 
               true ->
-                parse(rest, [tok | [top_op | operator_stack]], output_queue)
+                parse(rest, [tok, top_op | operator_stack], output_queue)
             end
         end
 

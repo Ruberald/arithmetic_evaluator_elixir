@@ -21,7 +21,7 @@ defmodule Tokenizer do
     read_digits(<<>>, <<ch::utf8, rest::bitstring>>)
   end
 
-  defp read_digits(digits, <<ch::utf8, rest::bitstring>>) when ch in ?0..?9 do
+  defp read_digits(digits, <<ch::utf8, rest::bitstring>>) when ch in ?0..?9 or ch in ~c"." do
     read_digits(<<digits::bitstring, ch::utf8>>, rest)
   end
 

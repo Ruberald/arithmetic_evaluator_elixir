@@ -1,21 +1,19 @@
-# ArithmeticEvaluator
+# Arithmetic Evaluator
 
-**TODO: Add description**
+A purely functional RPN generator and evaluator written in Elixir.
 
-## Installation
+```
+$ git clone https://github.com/Ruberald/arithmetic_evaluator_elixir.git
+$ cd arithmetic_evaluator_elixir
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `arithmetic_evaluator` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:arithmetic_evaluator, "~> 0.1.0"}
-  ]
-end
+// Make sure you have elixir and mix installed
+$ mix run -e "ArithmeticEvaluator.run"
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/arithmetic_evaluator>.
-
+### Sample output
+```
+Enter the expression: 3 * 4 * 4 - 45 / 3 + 2
+Generated RPN:
+["3", "4", "*", "4", "*", "45", "3", "/", "-", "2", "+"]
+Result: 35.0
+```
